@@ -22,16 +22,23 @@ function init() {
   camera.position.z = 1000;
 
   geometry = new THREE.BoxGeometry( 200, 200, 200 );
-  material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
-
-  var mesh = new THREE.Mesh( geometry, material );
-  mesh.name = 'cube';
-  scene.add( mesh );
+  material = new THREE.MeshLambertMaterial( { color: 0x00ff00 } );
 
   renderer = new THREE.WebGLRenderer();
   renderer.setSize( window.innerWidth, window.innerHeight );
 
   document.body.appendChild( renderer.domElement );
+
+  // background color of the scene
+  renderer.setClearColor( 0x333F47, 1 );
+
+  var light = new THREE.PointLight( 0xffffff );
+  light.position.set( 500, 500, 500 );
+  scene.add( light );
+
+  var mesh = new THREE.Mesh( geometry, material );
+  mesh.name = 'cube';
+  scene.add( mesh );
 
   stats = createStats();
   document.body.appendChild( stats.domElement );
@@ -63,14 +70,14 @@ function moveCube(){
   scene.getObjectByName('cube').rotation.y += control.rotationSpeed;
 
   var s = control.scale;
-  scene.getObjectByName('cube').scale.set( s, s, s);
+  scene.getObjectByName('cube').scale.set( s, s, s );
 
 }
 
 function addControls( controlObj ) {
 
   var gui = new dat.GUI();
-  gui.add( controlObj, 'rotationSpeed', -0.1, 0.1 );
-  gui.add( controlObj, 'scale', 0.01, 2);
+  gui.add( controlObj, 'rotationSpeed', -0.2, 0.2 );
+  gui.add( controlObj, 'scale', 0.01, 10 );
 
 }
