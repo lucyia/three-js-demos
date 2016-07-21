@@ -2,16 +2,29 @@
 <html>
   <head>
     <meta charset="UTF-8">
+
+    <style>
+      html, body {
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
 
     <!-- test if WebGL is supported first -->
-    <script src="js/detect-webgl.js"></script>
-    
+    <script type="text/javascript" src="js/detect-webgl.js"></script>
+
+    <!-- stats for framerate -->
+    <script type="text/javascript" src="js/stats.min.js"></script>
+    <script type="text/javascript" src="js/createStats.js"></script>
+
+    <!-- dat.gui -->
+    <script type="text/javascript" src="js/dat.gui.min.js"></script>
+
     <!-- THREE.js -->
-    <script src="js/three.min.js"></script>
+    <script type="text/javascript" src="js/three.min.js"></script>
 
     <!-- custom scripts -->
-    <script src="js/demo_01.js"></script>
+    <script type="text/javascript" src="js/demo_01.js"></script>
   </body>
 </html>
